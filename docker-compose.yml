@@ -1,0 +1,15 @@
+version: '3'
+services:
+    digiboxxv2:
+      container_name: "digiboxxv2"
+      build:
+        context: .
+        dockerfile: Dockerfile.dev
+      ports:
+        - 5000:4200
+      volumes:
+        - "/app/node_modules"
+        - ".:/app/"  
+
+        # - "./src:/app/src"  
+      command: ng serve --port 4200 --host 0.0.0.0 --poll=2000  
